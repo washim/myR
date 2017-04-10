@@ -1,0 +1,87 @@
+---
+title: "Exploratory Data Analysis Clustering"
+author: "Washim Ahmed"
+date: "12/20/2016"
+output: pdf_document
+---
+
+## Assignment 1 (A)
+Write the R Program for the following steps.
+
+**(a)Load mtcars() dataframe**
+
+```{r echo=TRUE}
+my_cars <- mtcars
+head(my_cars)
+```
+
+**(b) Add a column name qualCat, a new column which takes the value of A if mpg  < 15 and B if mpg >=15**
+
+```{r echo=TRUE}
+library(dplyr)
+my_cars <- my_cars %>%
+  mutate(qualCat = ifelse(mpg >= 15, "B", "A"))
+head(my_cars,50)
+```
+
+**(c) Save this data frame locally**
+
+```{r my_cars, echo=TRUE}
+write.csv(my_cars, file = "~/manipal_practice/mycars.csv") # Given my Unix system path
+```
+
+**(d)Load this file on to RStudio and know the different types of variables**
+
+```{r mtcars}
+mycars <- read.csv("~/manipal_practice/mycars.csv")
+str(mycars) # Display structure of variables with observations
+summary(mycars) # Display summary
+colnames(mycars) # Display Columns
+dim(mycars) # Display total observations and total variables
+```
+
+## Assignment 1 (B)
+Write an R program for clustering the drinks.csv file using k-means clustering. 
+
+```{r, echo=TRUE}
+library(factoextra)
+drinks <- read.csv(file = "~/manipal_practice/drinks.csv")
+drinks <- na.omit(drinks)
+set.seed(786)
+cluster <- kmeans(drinks[-1], centers = 3)
+fviz_cluster(cluster, data = drinks[-1], geom = "point", stand = FALSE)
+```
+
+**Also use the elbow method to infer the optimal value of K**
+
+```{r, echo=TRUE}
+library(ggplot2)
+drinks <- data.matrix(drinks)
+maxk <- 15
+wssdist <- sapply(1:maxk, function(y){
+  k <- kmeans(drinks[-1], y, nstart = 10)
+  return(k$tot.withinss)
+})
+
+distdf <- data.frame(cluster = 1:maxk, wssdist = wssdist)
+
+g <- ggplot(data = distdf, aes(x = cluster, y = wssdist))
+g <- g + geom_line(aes(color = "tot.withinss")) + geom_point()
+g <- g + geom_vline(xintercept = 3, linetype = "dashed")
+g <- g + ylab("Within groups sum of squares") + xlab("Number of Clusters")
+g <- g + ggtitle("Elbow method to infer the optimal value of K")
+g <- g + scale_x_continuous(breaks = 1:maxk)
+g
+```
+
+### **Optimal value of K is 3**
+
+
+
+
+
+
+
+
+
+

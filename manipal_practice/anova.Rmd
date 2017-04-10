@@ -1,0 +1,45 @@
+---
+title: "Anova"
+author: "Washim Ahmed"
+date: "12/25/2016"
+output: pdf_document
+---
+
+```{r, echo=TRUE}
+library(readxl)
+library(tidyverse)
+age_of_workers <- read_excel("~/manipal_practice/anova.xls")
+summary(age_of_workers)
+combine_all_ages <- gather(age_of_workers, "Factory", "Age", 1:3)
+anova <- aov(formula = Age ~ Factory, data = combine_all_ages)
+summary(anova)
+```
+
+I can see p value is **very very tiny** which is less than significance value of 0.01 (0.01 given in assignment) therefore I can **reject null hypothesis** which means there is a **significant age difference across factories**.
+
+I will do **TukeyHSD** test to identify which factory workers does have significance age difference.
+
+```{r, echo=TRUE}
+TukeyHSD <- TukeyHSD(anova)
+TukeyHSD
+plot(TukeyHSD)
+```
+
+1. For Tamil Nadu and Himachal Pradesh where P value 0 < 0.01 which means Tamil Naru's workers are older than Himachal Pradesh
+2. For Uttarakhand and Tamil Nadu where P value 0 < 0.01 which means Tamil Naru's workers are older than Uttarakhand
+
+**The workers at Tamil Naru factory are older than the ones at the other factories.**
+
+
+
+
+
+
+
+
+
+
+
+
+
+

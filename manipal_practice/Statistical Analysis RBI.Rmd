@@ -1,0 +1,113 @@
+---
+title: "Statistical Analysis RBI"
+author: "Washim Ahmed"
+date: "12/20/2016"
+output: pdf_document
+---
+
+```{r, include=FALSE}
+library(xlsx)
+library(tidyverse)
+library(ggplot2)
+#if (is.data.frame(branches) && nrow(branches) == 0 )
+branches <- read.xlsx("~/manipal_practice/banking.xls",1)
+
+colnames(branches)[1] <- "Serial"
+colnames(branches)[6] <- "Branch"
+
+branches$Branch <- as.numeric(branches$Branch)
+
+branches_by_year_and_group_category <- branches %>%
+  group_by(Group,Year,Category) %>%
+  summarise(avg = mean(Branch), median = median(Branch), sumcount = sum(Branch))
+
+#if (is.data.frame(gva) && nrow(gva) == 0 )
+gva <- read.xlsx("~/manipal_practice/banking.xls",2)
+gva_by_year <- gva %>%
+  gather("Dept","Value", 3:ncol(gva)) %>%
+  group_by(Year,Dept) %>%
+  summarise(Growth = sum(Value))
+
+#if (is.data.frame(forex) && nrow(forex) == 0 )
+forex <- read.xlsx("~/manipal_practice/banking.xls",3)
+forexts <- forex[-1]
+forexts$Value <- as.numeric(forexts$Value)
+```
+
+### Branches –Number of branches of different banks in various region groups
+
+```{r, echo=FALSE}
+g <- ggplot(data = branches_by_year_and_group_category, aes(x = Year, fill = Category))
+g <- g + geom_smooth(aes(y = sumcount, color = Category),se = FALSE, method = "loess")
+g <- g + ylab("Sum of Branches")
+g <- g + facet_wrap(~ Group, ncol = 2)
+g <- g + scale_x_continuous(breaks = 2005:2015)
+g <- g + theme(axis.text.x = element_text(angle = 90))
+g
+```
+
+```{r, echo=FALSE}
+g <- ggplot(data = branches_by_year_and_group_category, aes(x = Year, fill = Category))
+g <- g + geom_smooth(aes(y = avg, color = Category),se = FALSE, method = "loess")
+g <- g + ylab("Average of Branches")
+g <- g + facet_wrap(~ Group, ncol = 2)
+g <- g + scale_x_continuous(breaks = 2005:2015)
+g <- g + theme(axis.text.x = element_text(angle = 90))
+g
+```
+
+```{r, echo=FALSE}
+g <- ggplot(data = branches_by_year_and_group_category, aes(x = Year, fill = Category))
+g <- g + geom_smooth(aes(y = median, color = Category),se = FALSE, method = "loess")
+g <- g + ylab("Median of Branches")
+g <- g + facet_wrap(~ Group, ncol = 2)
+g <- g + scale_x_continuous(breaks = 2005:2015)
+g <- g + theme(axis.text.x = element_text(angle = 90))
+g
+```
+
+## **Conclusion**
+**Regional Rural Bank and Foreign Bank increased their branches in all region very rapidly though there is no significant difference with others banks in Average and Median.**
+
+### GVA – Gross Economic Value Added, by sector
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+g <- ggplot(data = gva_by_year, aes(x = Year))
+g <- g + geom_smooth(aes(y = Growth, color = Dept), se = FALSE, method = 'loess')
+g <- g + ylab("Gross Economic Value Added")
+g <- g + theme(legend.position="right",
+               legend.text=element_text(size=7),
+               legend.title=element_blank())
+g <- g + scale_x_continuous(breaks = 2011:2016) + theme(axis.text.x = element_text(angle = 90))
+g
+```
+
+## **Conclusion**
+**Financial, Real Estate and Professional Sevices increase economic value add significantly compare to other services.**
+
+**Electricity Gas Water Supply have very least gross economic value add.**
+
+**Gross Economic value fall down in 2016 significantly.**
+
+### Forex – Foreign exchange reserves, by components
+
+```{r, echo=FALSE}
+g <- ggplot(data = forexts, aes(x = Year))
+g <- g + geom_smooth(aes(y = Value, color = Currency), se = FALSE, method = 'loess')
+g <- g + facet_wrap(~ Category) + theme(axis.text.x = element_text(angle = 90))
+g
+```
+
+## **Conclusion**
+**Foreign Exchange reserve going up between 2002 to 2008 for Gold both in INR and Dollar, on other hand both going down from 2009 to current year**
+
+**Foreign Exchange reserve going up for Foreign Currency assets in INR where Dollar going down significantly between 2002 to 2005. From 2006 to 2016 Foreign Currency assets significantly increased in Dollar**
+
+**Foreign Exchange reserve always up for SDRs throughout all years in Dollar where INR was significantly down.**
+
+**Foreign Exchange reserve almost equal for both INR and Dollar for Reserve Tranch Position**
+
+
+
+
+

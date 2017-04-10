@@ -1,0 +1,6 @@
+bins <- seq(1.5,5.5, by = 1)
+intervals <- cut(faithful$eruptions, bins)
+transform(table(intervals))
+transform(table(intervals), Relative = prop.table(Freq), Cumulative = cumsum(Freq))
+hist(faithful$eruptions)
+hist(faithful$eruptions, breaks = bins, col = "blue")

@@ -1,0 +1,17 @@
+3.44.220.227 - - [13/Jun/2016:10:37:27 -0400] "GET / HTTP/1.1" 302 477
+3.44.220.227 - - [13/Jun/2016:10:37:58 -0400] "GET /sites/default/modules/contrib/admin_menu/admin_menu.js?o8itfc HTTP/1.1" 200 12267
+3.44.220.227 - - [13/Jun/2016:10:37:58 -0400] "GET /sites/default/themes/lookahead/js/bootstrap.min.js?o8itfc HTTP/1.1" 200 29097
+3.44.220.227 - - [13/Jun/2016:10:37:58 -0400] "GET /sites/default/modules/contrib/admin_menu/admin_devel/admin_devel.js?o8itfc HTTP/1.1" 200 982
+3.44.220.227 - - [13/Jun/2016:10:37:58 -0400] "GET /sites/default/themes/lookahead/js/custom-scripts.js?o8itfc HTTP/1.1" 200 5909
+3.44.220.227 - - [13/Jun/2016:10:37:58 -0400] "GET /modules/system/system.base.css?o8itfc HTTP/1.1" 200 5428
+3.44.220.227 - - [13/Jun/2016:10:37:58 -0400] "GET /sites/default/modules/contrib/simplenews/simplenews.css?o8itfc HTTP/1.1" 200 503
+3.44.220.227 - - [13/Jun/2016:10:37:58 -0400] "GET /modules/system/system.theme.css?o8itfc HTTP/1.1" 200 3711
+3.44.220.227 - - [13/Jun/2016:10:37:58 -0400] "GET /modules/user/user.css?o8itfc HTTP/1.1" 200 1827
+3.44.220.227 - - [13/Jun/2016:10:37:58 -0400] "GET /modules/search/search.css?o8itfc HTTP/1.1" 200 564
+3.44.220.227 - - [13/Jun/2016:10:37:58 -0400] "GET /sites/default/modules/contrib/ctools/css/ctools.css?o8itfc HTTP/1.1" 200 509
+3.44.220.227 - - [13/Jun/2016:10:37:58 -0400] "GET /modules/shortcut/shortcut.css?o8itfc HTTP/1.1" 200 2408
+3.44.220.227 - - [13/Jun/2016:10:37:58 -0400] "GET /sites/default/themes/lookahead/css/lookahead.css?o8itfc HTTP/1.1" 200 1969
+3.44.220.227 - - [13/Jun/2016:10:37:58 -0400] "GET /sites/default/themes/lookahead/css/custom-styles.css?o8itfc HTTP/1.1" 200 7056
+3.44.220.163 - - [13/Jun/2016:11:48:24 -0400] "GET / HTTP/1.1" 302 476
+3.44.220.163 - - [13/Jun/2016:11:48:27 -0400] "GET / HTTP/1.1" 302 476
+3.44.220.163 - - [13/Jun/2016:12:26:26 -0400] "GET /people/simplenews HTTP/1.1" 302 495

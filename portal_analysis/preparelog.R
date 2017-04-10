@@ -1,0 +1,48 @@
+library(tidyverse)
+chauffeur <- read.table("~/portal_analysis/logs/chauffeur/node1/chauffeurrequest_access_log-2017-01-24-00")
+chauffeur$node <- rep(1, nrow(chauffeur))
+chauffeur$server <- rep("Chauffeur", nrow(chauffeur))
+
+filenames <- list.files("~/portal_analysis/logs/enterprise/node1", pattern="enterprisesolutions*", full.names=TRUE)
+filenames <- lapply(filenames, read.table)
+enterprise_node1 <- do.call(rbind.data.frame, filenames)
+enterprise_node1$node <- rep(1, nrow(enterprise_node1))
+enterprise_node1$server <- rep("Enterprise Solutions", nrow(enterprise_node1))
+
+filenames <- list.files("~/portal_analysis/logs/enterprise/node2", pattern="enterprisesolutions*", full.names=TRUE)
+filenames <- lapply(filenames, read.table)
+enterprise_node2 <- do.call(rbind.data.frame, filenames)
+enterprise_node2$node <- rep(2, nrow(enterprise_node2))
+enterprise_node2$server <- rep("Enterprise Solutions", nrow(enterprise_node2))
+
+filenames <- list.files("~/portal_analysis/logs/lookahead/node1", pattern="lookahead*", full.names=TRUE)
+filenames <- lapply(filenames, read.table)
+lookahead_node1 <- do.call(rbind.data.frame, filenames)
+lookahead_node1$node <- rep(1, nrow(lookahead_node1))
+lookahead_node1$server <- rep("Lookahead", nrow(lookahead_node1))
+
+filenames <- list.files("~/portal_analysis/logs/lookahead/node2", pattern="lookahead*", full.names=TRUE)
+filenames <- lapply(filenames, read.table)
+lookahead_node2 <- do.call(rbind.data.frame, filenames)
+lookahead_node2$node <- rep(2, nrow(lookahead_node2))
+lookahead_node2$server <- rep("Lookahead", nrow(lookahead_node2))
+
+filenames <- list.files("~/portal_analysis/logs/programe/node1", pattern="myprogramstatus*", full.names=TRUE)
+filenames <- lapply(filenames, read.table)
+programe_node1 <- do.call(rbind.data.frame, filenames)
+programe_node1$node <- rep(1, nrow(programe_node1))
+programe_node1$server <- rep("Programe Status", nrow(programe_node1))
+
+filenames <- list.files("~/portal_analysis/logs/programe/node2", pattern="myprogramstatus*", full.names=TRUE)
+filenames <- lapply(filenames, read.table)
+programe_node2 <- do.call(rbind.data.frame, filenames)
+programe_node2$node <- rep(2, nrow(programe_node2))
+programe_node2$server <- rep("Programe Status", nrow(programe_node2))
+
+access_log <- rbind(chauffeur,enterprise_node1,enterprise_node2,lookahead_node1,lookahead_node2,programe_node1,programe_node2)
+access_log <- access_log[,c(1,4,7,9,10)]
+access_log$V4 <- substring(access_log$V4,2)
+names(access_log) <- c("ip","time","status","node","server")
+access_log$time <- as.POSIXct(strptime(access_log$time, "%d/%b/%Y:%H:%M:%S"),"%d/%b/%Y:%H:%M:%S")
+save(access_log, file = "~/portal_analysis/access_log.RData")
+rm(filenames,chauffeur,enterprise_node1,enterprise_node2,lookahead_node1,lookahead_node2,programe_node1,programe_node2)

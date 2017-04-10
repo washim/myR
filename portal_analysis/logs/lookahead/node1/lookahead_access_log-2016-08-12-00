@@ -1,0 +1,13 @@
+100.116.31.207 - - [12/Aug/2016:10:06:45 -0400] "GET / HTTP/1.1" 302 484
+100.116.31.207 - - [12/Aug/2016:10:07:39 -0400] "GET / HTTP/1.1" 302 211
+100.116.31.207 - - [12/Aug/2016:10:07:39 -0400] "GET / HTTP/1.1" 200 29702
+100.116.31.207 - - [12/Aug/2016:10:07:41 -0400] "GET /sites/default/files/color/lookahead-d5080b35/logo.png HTTP/1.1" 200 1386
+100.116.31.207 - - [12/Aug/2016:10:07:42 -0400] "GET /sites/default/modules/contrib/admin_menu/images/bkg.png HTTP/1.1" 200 236
+3.3.86.1 - - [12/Aug/2016:10:07:50 -0400] "GET / HTTP/1.0" 302 484
+100.116.31.207 - - [12/Aug/2016:10:08:08 -0400] "GET /admin/config/people/nbcu-siteminder-settings HTTP/1.1" 200 26983
+100.116.31.207 - - [12/Aug/2016:10:08:08 -0400] "GET /misc/form.js?v=7.41 HTTP/1.1" 200 2460
+100.116.31.207 - - [12/Aug/2016:10:08:08 -0400] "GET /misc/collapse.js?v=7.41 HTTP/1.1" 200 3323
+100.116.31.207 - - [12/Aug/2016:10:08:08 -0400] "GET /misc/menu-collapsed.png HTTP/1.1" 200 105
+100.116.31.207 - - [12/Aug/2016:10:08:08 -0400] "GET /misc/menu-expanded.png HTTP/1.1" 200 106
+100.116.31.207 - - [12/Aug/2016:10:08:08 -0400] "GET /misc/grippie.png HTTP/1.1" 200 106
+3.23.112.213 - - [12/Aug/2016:16:57:46 -0400] "GET / HTTP/1.1" 302 484

@@ -1,0 +1,55 @@
+---
+title: "Drupal Portal Insights"
+subtitle: "Case study of site access logs using Data Science"
+author: "By Washim Ahmed"
+date: "1/27/2017"
+output: pdf_document
+---
+
+# Introductions
+Case study to describe how all drupal portals are being accessed by the users after being live based on data captured between 2016 and 23-01-2017
+
+# Application Insights Story
+## 1. http://enterprisesolutions.inbcu.com
+Node1 and Node2 both are functional and distributed. Node1 responded faster than (Figure 2) Node2 though I dint try to analyse whether Node2 have anomalies or changes are happened due to just randomness.
+
+![Timeseries](~/portal_analysis/plot.png)
+
+There is a possibilities to improve site performance by improving Node2 if we are able to identify what’s make Node2 weaker than Node1 because both should perform equally on average.
+
+Mathematically I found approximately **Node1 is 2 times higher than Node2**
+
+Enterprise Solutions application was frequently visited by the users between October2016 and January2017(Figure 2) with **average 19,763 access requests**. Numbers are not bad though I dint try to analyse why there was no access requests before October2016. It might happen Enterprise Solutions portal went live on or after September2016 and this might be the reason that there was no logs before October2016
+
+## 2. http://chauffeur.inbcu.com
+Logs says that absolutely zero requests by users in 2016 for both Node1 and Node2. No users tried to access http://chauffeur.inbcu.com in last year.
+
+## 3. http://matrix.inbcu.com
+For this also logs says that absolutely zero requests by users in 2016 for both Node1 and Node2. No users tried to access http://chauffeur.inbcu.com in last year.
+
+## 4. http://lookahead.inbcu.com
+Node1 and Node2 both are functional and equally distributed with equal performance.
+
+Users were used to visit this site frequently between **May, June and July in 2016**(Figure2)
+
+![Timeseries](~/portal_analysis/lookahead.png)
+
+## 5. http://myprogramstatus.inbcu.com
+Node1 and Node2 both are functional and equally distributed with equal performance though there was very less data.
+
+Very less users were requests this site in 2016(Figure3)
+
+# Decision making platform solutions
+There are enormous possibilities of research and decision making platform solutions applying data science. Below I have added platform solutions architectural design for interactive decision making data science solutions.(Figure3)
+
+![interactive decision making data science solutions](~/portal_analysis/solutions.png)
+
+
+
+
+
+
+
+
+
+

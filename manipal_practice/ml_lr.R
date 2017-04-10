@@ -1,0 +1,6 @@
+setwd("~/manipal_practice")
+salary <- read.table("salary.dat", header = T, stringsAsFactors = F)
+str(salary)
+fit <- lm(sl ~ rk, data = salary)
+summary(fit)
+plot(fit)

@@ -1,0 +1,136 @@
+---
+title: "Bangalore Weather Temperature Change Case Study 2011-2016"
+author: "Washim Ahmed"
+date: "12/1/2016"
+output: html_document
+---
+
+```{r, include=FALSE}
+source("yearly_weather_change_by_month.R")
+```
+
+## API
+
+I'm using <https://www.wunderground.com/> weather API for this case study. I had successfully imported temparature starting from 2011 to 2016
+
+## Actual Trend
+
+```{r, echo=TRUE}
+g <- ggplot(data = bloretemp, aes(x = index(bloretemp), y = bloretemp))
+g <- g + geom_line() + geom_point()
+g <- g + labs(title = "Actual Trend")
+g <- g + scale_y_continuous(name='TemperatureC') + scale_x_datetime(name = "Year")
+g
+```
+
+**You can see temperature changing trend in above ploted graph. Where it is clear that in 2011 and 2012 there is no such significance change in temperature though remaining years temperature was change significantly from below graph.**
+
+**Each point belongs to month within year**
+
+```{r, echo=TRUE}
+g <- ggplot(data = bloretemp, aes(x = index(bloretemp), y = bloretemp))
+g <- g + geom_line() + geom_point()
+g <- g + geom_smooth(data = yearly_avg, aes(x = index(yearly_avg), y = yearly_avg), 
+                     color = "red", se = FALSE)
+g <- g + labs(title = "Average Trend")
+g <- g + scale_y_continuous(name='TemperatureC') + scale_x_datetime(name = "Year")
+g
+```
+
+## Diffrence in Trend
+
+```{r, echo=TRUE}
+g <- ggplot(data = yearly_diff, aes(x = index(yearly_diff), y = yearly_diff))
+g <- g + geom_line() + geom_point()
+g <- g + labs(title = "Difference in Trend")
+g <- g + scale_y_continuous(name='Difference', breaks = -7:7)
+g <- g + scale_x_datetime(name = "Year")
+g
+```
+
+## Seasonal Trends
+
+Below Graphs tell you seasonal trends between 2011 to 2016.
+
+```{r, echo=TRUE}
+Y2011 <- seasonality %>%
+  filter(date >= "2011-01-01" & date <= "2011-12-31")
+Y2012 <- seasonality %>%
+  filter(date >= "2012-01-01" & date <= "2012-12-31")
+Y2013 <- seasonality %>%
+  filter(date >= "2013-01-01" & date <= "2013-12-31")
+Y2014 <- seasonality %>%
+  filter(date >= "2014-01-01" & date <= "2014-12-31")
+Y2015 <- seasonality %>%
+  filter(date >= "2015-01-01" & date <= "2015-12-31")
+Y2016 <- seasonality %>%
+  filter(date >= "2016-01-01" & date <= "2016-12-31")
+g <- ggplot(data = seasonality, aes(x = 1:12, y = Temperature))
+g <- g + geom_line(data = Y2011, aes(color = "2011"))
+g <- g + geom_line(data = Y2012, aes(color = "2012"))
+g <- g + geom_line(data = Y2013, aes(color = "2013"))
+g <- g + geom_line(data = Y2014, aes(color = "2014"))
+g <- g + geom_line(data = Y2015, aes(color = "2015"))
+g <- g + geom_line(data = Y2016, aes(color = "2016"))
+g <- g + scale_colour_manual("Years",values = c("2011" = "green", "2012" = "blue", "2013" = "orange", "2014" = "pink", "2015" = "black", "2016" = "red"))
+g <- g + labs(title = "Seasonal Trend")
+g <- g + scale_y_continuous(name='TemperatureC')
+g <- g + scale_x_continuous(name = "Months", breaks = 1:12)
+g
+```
+
+## Seasonal Trends by Monsoon
+
+Below Graphs tell you seasonal trends between 2011 to 2016 by monsoon for each year.
+
+```{r, echo=FALSE}
+Y2011 <- seasonality %>%
+  filter(date >= "2011-01-01" & date <= "2011-12-31")
+Y2012 <- seasonality %>%
+  filter(date >= "2012-01-01" & date <= "2012-12-31")
+Y2013 <- seasonality %>%
+  filter(date >= "2013-01-01" & date <= "2013-12-31")
+Y2014 <- seasonality %>%
+  filter(date >= "2014-01-01" & date <= "2014-12-31")
+Y2015 <- seasonality %>%
+  filter(date >= "2015-01-01" & date <= "2015-12-31")
+Y2016 <- seasonality %>%
+  filter(date >= "2016-01-01" & date <= "2016-12-31")
+g <- ggplot(data = seasonality, aes(x = mm, y = Temperature))
+g <- g + geom_line(data = Y2011, aes(color = "2011"))
+g <- g + geom_line(data = Y2012, aes(color = "2012"))
+g <- g + geom_line(data = Y2013, aes(color = "2013"))
+g <- g + geom_line(data = Y2014, aes(color = "2014"))
+g <- g + geom_line(data = Y2015, aes(color = "2015"))
+g <- g + geom_line(data = Y2016, aes(color = "2016"))
+g <- g + scale_colour_manual("Years",values = c("2011" = "green", "2012" = "blue", "2013" = "orange", "2014" = "pink", "2015" = "black", "2016" = "red"))
+g <- g + labs(title = "Seasonal Trend by Monsoon")
+g <- g + scale_y_continuous(name='TemperatureC')
+g <- g + scale_x_continuous(name = "Months", breaks = 1:12)
+g + facet_grid(~season, scales = "free")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

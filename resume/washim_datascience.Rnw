@@ -1,0 +1,104 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage[document]{ragged2e}
+\usepackage[a4paper]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\hypersetup{colorlinks}
+\newgeometry{left=20mm,top=10mm,right=20mm,bottom=10mm}
+\title{\textbf{Washim Ahmed}}
+\author{Senior Consultant, Machine Learning and \\Data Science Executive(\textbf{PGDDS})}
+\date{}
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\maketitle
+\thispagestyle{empty}
+\justify
+
+\textbf{9+ years} of over-all IT experience with over \textbf{6+ years} of experience in data reporting platform in different open source framework and \textbf{3+ years} in Data analysis. Well rounded, visionary ecutive with broad spectrum of data science knowledge. As the next opportunities I am seeking role for senior level assignments in Data Science with an organization of repute.\\
+
+\section{Research at work}
+
+\subsection{Human or robot prediction}
+\textbf{Problem Statement:} Identify online auction bids that are placed by "robots", helping the site owners easily flag these users for removal from their site to prevent unfair auction activity.\\
+\textbf{Solutions:} For me it was a binary classification problem. I trained model using sklearn.calibration, sklearn.cross-validation, sklearn.ensemble from scikit-learn toolkit to identify robots from given dataset.
+
+\subsection{Engine Components Efficiency Test}
+\textbf{Problem Statement:} GE Aviation engineering team were looking for a model which will predict whether components of the engine still efficient enough for reuse or not. All engines were used between 1975 and 1980 year.\\
+\textbf{Solutions:} Simple but most of the time passed to understand/prepare the data which was generate in 1975 in text files without any column name. Its had more than 1000+ atributes with all numerical figures. I trained a model by evaluating score of different regression algorithm after extracting features from the data set.
+
+\subsection{Predict physical assets demand}
+\textbf{Problem Statement:} Infrastructure looking for a solutions where they can predict physical assets demand in advance to improve support excellence.\\
+\textbf{Solutions:} I've given a web based dashboard which require assets id as an input and predicted assets demand as an output. Estimated a model applying different regression algorithm to predict future demand taking input from web interface and MySQL database.
+
+\subsection{Outage Prediction}
+\textbf{Problem Statement:} Engineering team was very much concern about outage in server and want to build a dashbord to see predicted outage for next month to take necessary action before it arise.\\
+\textbf{Solutions:} Mainly solved by linear \textbf{regression} where I trained a model using python which accept date range as an input and returns all predicted outage.
+
+\subsection{Image Recognition}
+\textbf{Problem Statement:} PDF contains business owner picture where I trained model to identify the picture to predict business owner name.\\
+\textbf{Solutions:} Trained the algorithm to learn the differences between different classes. Trained model doing feature extraction using sklearn-svm, sklearn-KNeighborsClassifier to predict the object.
+
+\subsection{Web traffic analysis}
+\textbf{Problem Statement:} Client wants to analyse anomalies from accesslog to investigate further and also they wants to do visitor segmentation based on accesslog.\\
+\textbf{Solutions:} Solved using scikit-learn outlier detection model where I was used Robust covariance estimation and Mahalanobis distances relevance algorithm to train the model to predict outliers in accesslog.
+
+\section{Data Reporting Solutions}
+I have implemented folowing data reporting solutions using PHP, Python, MySQL, NodeJS, AngularJS with full support and enhancement.
+\subsection{Internet Application}
+\url{http://www.nbcuniversal.com}, \url{https://software.intel.com}, \url{https://schachenmayr.com}, \url{http://www.knitrowan.com}, \url{https://www.pdx.edu}
+\subsection{Intranet Application}
+http://openplatform.nbcuni.com, http://nbcsportsmobile.nbcuni.com, http://oasismobile.nbcuni.com, http://stage-chauffeurrequest.inbcu.com,http://matrix.inbcu.com, http://datasolutions.inbcu.com, http://survey.inbcu.com
+
+\section{Work Experience}
+\subsection{Capgemini India Service Limited, \textnormal{\small{Bangalore, INDIA \hfill \textbf{20-03-2014 to Till}}}}
+Working as a senior consultant for client NBCUniversal. Currently I'm managing small team in data reporting solutions using php and data science with web operations team. I'm also working with different team as well in hackathon basis.
+\subsection{UST Global, \textnormal{\small{Bangalore, INDIA \hfill \textbf{15-07-2013 to 17-03-2014}}}}
+Working as System analyst for client Intel. I was given support and enhancement for user experience issue in different geo location.
+\subsection{Ericsson Global India, \textnormal{\small{Kolkata, INDIA \hfill \textbf{22-09-2011 to 05-07-2013}}}}
+Working as a Solution Integrator. Writing well designed, testable, efficient code by using best software development practices.
+\subsection{ObjectSol Technologies, \textnormal{\small{Kolkata, INDIA \hfill \textbf{15-04-2008 to 10-06-2010}}}}
+Working as a Software Engineer for web applications.
+\subsection{Cyndrake, \textnormal{\small{Kolkata, INDIA \hfill \textbf{14-05-2007 to 31-03-2008}}}}
+Working as a Trainee Software Engineer for web applications.
+
+\thispagestyle{empty}
+\section{Academic Experience}
+As a PGDDS(\textit{\textbf{Post Graduate Diploma in Data Science}}) candidate I have completed following\\ case studies to build my capabilities within \textit{\textbf{Manipal Uiversity},INDIA}.
+\begin{itemize}[leftmargin=*]
+  \item \textit{\textbf{Lung cancer detection}}, where as a team member I was trying to predict lung cancer detection from given 164 GB CT Scan DICOM images.It was Kaggle competitions.
+  \item \textit{\textbf{Digit Recognizer}}, The goal in this competition is to take an image of a handwritten single digit, and determine what that digit is
+  \item Working in to prepare a model which will automatically identify and classify taboo posts in anonymous forums with good accuracy.
+  \item \textit{\textbf{Bangalore climate change analysis}}, where I fetched data from 2002 to 2016 from \url{https://openweathermap.org/api} and also predicted future temperature based on past trend, fetching out seasonal temperature trend etc.
+  \item \textit{\textbf{Word Frequency}}, where I fetched user twits on twitter contain keywords "Manipal University" to visualize most frequent common words about this university.
+  \item \textit{\textbf{Anomalies Detections}} from windows events logs and what is the chance it may occur in future again.
+\end{itemize}
+
+\section{Capabilities}
+Not only machine learning, I'm capable enough to deploy model in any running web platform. Data enrichment. Embedding 3rd party visualization. Decision making dashboard. Mapreduce in Hadoop ecosystem.
+
+\section{Contributions}
+\url{https://www.drupal.org/project/views_simplechart}, \url{https://www.drupal.org/project/pure360}, \url{https://www.drupal.org/project/blockexport}, \url{https://www.drupal.org/project/cpcl}, \url{https://www.drupal.org/project/protocol}
+
+\section{Skills}
+PHP-MySQL(9yrs), R-Python(3yrs), Hadoop(Scala-Spark)(1yrs)
+
+\section{Educational Qualification}
+\textbf{Post Graduate Diploma in Data Science} \hfill \textit{Year 2016-2017}\\
+Manipal University, \textnormal{Bangalore, INDIA}\\
+Course Highlights: R, Python, Statistical Analysis, Exploratory Data Analysis, Machine Learning\\~\\
+\textbf{B.Tech in Computer Science} \hfill \textit{Year 2003-2007 [CGPA: 7.3/10]}\\
+Bengal College of Engineering and Technology, \textnormal{Durgapur, INDIA}
+
+\thispagestyle{empty}
+\section{Personal Information}
+\textbf{Email:} washim.ahmed@gmail.com\\
+\textbf{Mobile No:} +91 9738726005\\
+\textbf{DOB:} 31-03-1986\\
+\textbf{PAN:} AOXPA1743B\\
+\textbf{Address:} Marathalli, Bangalore, INDIA\\
+
+\end{document}
